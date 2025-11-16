@@ -344,17 +344,15 @@ a:focus-visible {
 }
 
 
+
 /*планшет*/
 @media (max-width: 1024px) and (min-width: 768px) {
   
   .header__top-controls {
-    position: absolute; /* ставим блок в абсолют */
-    top: 5px;
-    right: 5px;
+    position: relative;
     display: flex;
-    flex-direction: column; /* rec сверху, кнопки под ним */
-    align-items: flex-end; /* всё к правому краю */
-    gap: 146px;
+    flex-direction: column;
+    align-items: flex-end;
   }
 
   /* rec  */
@@ -364,16 +362,29 @@ a:focus-visible {
     right: 15px;
   }
 
+    .dark .header__rec {
+    margin: 0;
+    order: 0;
+    right: 15px;
+    margin-bottom: 20px;
+    display: block; /* показываем только в тёмной теме */
+  }
+
+  .light .header__rec {
+    display: none;
+  }
+
   /* меню колонкой */
   .header__theme-menu {
     margin: 0;
+    margin-top: 80px;
   }
 
   .header__theme-menu-list {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    align-items: flex-end;/* кнопки тоже к правому краю */
+    align-items: flex-end;
   }
 
   .header__text {
@@ -450,6 +461,7 @@ a:focus-visible {
   /*меню колонкой */
   .header__theme-menu {
     margin: 0;
+    margin-top: 75px; 
   }
 
   .header__theme-menu-list {
