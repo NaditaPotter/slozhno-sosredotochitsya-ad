@@ -220,6 +220,7 @@ a:focus-visible {
 
 .content__text-subtitle { /*Почему сложно сосредаточиться*/
   font-size: var(--main-text-size);
+  color: var(--section-heading-color);
   font-weight: 700;
   padding: 0;
   margin: 0;
