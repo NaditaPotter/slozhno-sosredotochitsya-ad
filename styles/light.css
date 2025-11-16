@@ -45,7 +45,7 @@
     --footer-logo-color: #ffc2e6;
     
     --decor-text-color: var(--main-text-color);
-    --decor-bg-color: var(--accent-color);
+    --decor-bg-color: var(--accent-color); 
     --border-color: var(--accent-color);
     
     --background-image: url(../images/cover-image-light.png);
