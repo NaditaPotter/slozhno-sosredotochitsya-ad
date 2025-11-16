@@ -10,7 +10,7 @@
     --main-line-height: 1.3;
     --main-text-color: #f1b2ce;
     --main-heading-color: #000028;
-    --section-heading-color: #ff0070;
+    --section-heading-color: #000028;
     --header-logo-color: #db00ff;
     --header-logo-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem); /* 116px -120px */
     --main-bg-color: #000028;
