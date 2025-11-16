@@ -7,6 +7,7 @@
   font-weight: 400;
   font-size: var(--main-text-size);
   line-height: var(--main-line-height);
+  background-attachment: fixed
 }
 
 /* Ссылки */
@@ -112,8 +113,12 @@ a:focus-visible {
 
 /*мигания */
 @keyframes blink {
-  from { opacity: 1; } /* начало прозрачное*/
-  to { opacity: 0; }
+  from {
+    opacity: 1;
+  }/* начало прозрачное*/
+  to {
+    opacity: 0;
+  }
 }
 
 /* кнопки */
