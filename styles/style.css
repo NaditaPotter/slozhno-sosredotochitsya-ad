@@ -1,3 +1,5 @@
+/* style.css */
+/* --- 1. БАЗОВЫЕ СТИЛИ СТРАНИЦЫ И СБРОС --- */
 .page {
   color: var(--main-text-color);
   background-color: var(--main-bg-color);
@@ -7,6 +9,7 @@
   line-height: var(--main-line-height);
 }
 
+/* Ссылки */
 a {
   text-decoration: none;
   color: var(--main-text-color);
@@ -23,6 +26,7 @@ a:focus-visible {
   outline-offset: 4px;
 }
 
+/* Декоративная подложка */
 .title-decor {
   background-color: var(--accent-color);
   color: var(--main-bg-color);
@@ -47,7 +51,7 @@ a:focus-visible {
 
 /* уголки */
 .decorated-zone::before {
-  content: "";   /* Обязателен для псевдоэлемента */
+  content: ""; /* Обязателен для псевдоэлемента */
   position: absolute;
   top: var(--main-gap); 
   right: var(--main-gap);
@@ -70,11 +74,11 @@ a:focus-visible {
 
 /* рек и кнопки */
 .header__top-controls {
-    grid-row: 1 / 2; /*1 стрк*/
-    grid-column: 1 / 4; /*1 колонк*/
-    display: flex;
-    align-items: flex-start; /* по верху*/
-    padding: 0 var(--main-gap); 
+  grid-row: 1 / 2; /*1 стрк*/
+  grid-column: 1 / 4; /*1 колонк*/
+  display: flex;
+  align-items: flex-start; /* по верху*/
+  padding: 0 var(--main-gap); 
 }
 
 
@@ -94,7 +98,7 @@ a:focus-visible {
 .header__rec::after { /* кружок*/
   content: "";
   width: 9px; 
-  height: 9px;   
+  height: 9px;
   background-color: var(--accent-color);
   border-radius: 50%;
   
@@ -114,8 +118,8 @@ a:focus-visible {
 
 /* кнопки */
 .header__theme-menu {
-    margin: 0 auto;
-    padding-right: 0;
+  margin: 0 auto;
+  padding-right: 0;
 }
 
 .header__theme-menu-list {
@@ -166,15 +170,15 @@ a:focus-visible {
 }
 
 .header__text {
-    grid-column: 3 / 5;
-    grid-row: 2 / 4;
-    align-self: flex-end;
-    justify-self: end;
-    
-    width: 491px;
+  grid-column: 3 / 5;
+  grid-row: 2 / 4;
+  align-self: flex-end;
+  justify-self: end;
+  
+  width: 491px;
 
-    position: relative;
-    top: -60px; 
+  position: relative;
+  top: -60px; 
 }
 
 .header__paragraph {
@@ -336,18 +340,18 @@ a:focus-visible {
 
 /*планшет*/
 @media (max-width: 1024px) and (min-width: 768px) {
-
+  
   .header__top-controls {
-    position: absolute;      /* ставим блок в абсолют */
+    position: absolute; /* ставим блок в абсолют */
     top: 5px;
     right: 5px;
     display: flex;
-    flex-direction: column;  /* rec сверху, кнопки под ним */
-    align-items: flex-end;   /* всё к правому краю */
+    flex-direction: column; /* rec сверху, кнопки под ним */
+    align-items: flex-end; /* всё к правому краю */
     gap: 146px;
   }
 
-  /* rec  */
+  /* rec  */
   .header__rec {
     margin: 0;
     order: 0;
@@ -363,7 +367,7 @@ a:focus-visible {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    align-items: flex-end;   /* кнопки тоже к правому краю */
+    align-items: flex-end;/* кнопки тоже к правому краю */
   }
 
   .header__text {
@@ -397,7 +401,9 @@ a:focus-visible {
     grid-column: 1;
     grid-row: 4;
   }
+
 }
+
 
 
 @media (max-width: 767px) {
@@ -423,12 +429,12 @@ a:focus-visible {
     top: 5px;
     right: 5px;
     display: flex;
-    flex-direction: column;  /* rec сверху, кнопки под ним */
-    align-items: flex-end;   /* прижимаем всё к правому краю */
-    gap: 39px;               /* расстояние между rec и кнопками */
+    flex-direction: column; /* rec сверху, кнопки под ним */
+    align-items: flex-end; /* прижимаем всё к правому краю */
+    gap: 39px; /* расстояние между rec и кнопками */
   }
 
-  /* rec  */
+  /* rec  */
   .header__rec {
     margin: 0;
     order: 0;
@@ -444,15 +450,15 @@ a:focus-visible {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    align-items: flex-end;   /* кнопки тоже к правому краю */
+    align-items: flex-end; /* кнопки тоже к правому краю */
   }
 
   .header__text {
     max-width: 364px;
     width: 364px;
   }
-  
-    .content__section_type_double {
+
+  .content__section_type_double {
     display: block !important; /* Убираем Grid вообще */
   }
 
@@ -489,5 +495,6 @@ a:focus-visible {
     grid-column: 1 / 2 !important; 
     grid-row: auto !important; 
   }
+
 }
 
