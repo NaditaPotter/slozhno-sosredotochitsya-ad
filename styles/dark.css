@@ -4,13 +4,13 @@
  * Специально для тёмной темы при наличии класса (ПРИНУДИТЕЛЬНОЕ ПЕРЕКЛЮЧЕНИЕ).
  */
 :root.theme-dark {
-  --accent-color: #ff0070;
+  --accent-color: #FF0070;
   --main-bg-color: #000028;
-  --nav-color: #ff0070;
-  --header-logo-color: #db00ff;
-  --footer-logo-color: #db00ff;
-  --main-text-color: #f1b2ce;
-  --section-heading-color: #ff0070;
+  --nav-color: #FF0070;
+  --header-logo-color: #DB00FF;
+  --footer-logo-color: #DB00FF;
+  --main-text-color: #F1B2CE;
+  --section-heading-color: #000028;
   
   /* Добавлено для корректного ховера на кнопках меню */
   --nav-hover-color: rgb(255 0 112 / 0.4); 
