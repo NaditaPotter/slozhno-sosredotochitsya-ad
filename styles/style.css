@@ -213,7 +213,7 @@ a:focus-visible {
 
 .content__section-title { /*Н2*/
   grid-column: 1 / 2;
-  color: var(--section-heading-color);
+  color: var(--nav-color);
   font-size: var(--main-text-size);
   font-weight: 700;
 }
