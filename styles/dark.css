@@ -16,7 +16,7 @@
   --nav-hover-color: rgb(255 0 112 / 0.4); 
   
   /* для декоративных элементов */
-  --decor-text-color: var(--main-bg-color); 
+  --decor-text-color: var(--main-bg-color);
   --decor-bg-color: var(--section-heading-color);
   --border-color: var(--accent-color);
   
