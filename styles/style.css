@@ -1,282 +1,253 @@
-/* 
-  Основные стили страницы
-  Здесь используется CSS Grid и Flexbox для вёрстки
-  Все цвета берутся из CSS переменных
-*/
-
-/* Базовые стили страницы */
 .page {
-  margin: 0 auto; /* Центрируем страницу по горизонтали */
-  background-color: var(--bg-color); /* Фон из переменных */
-  font-family: var(--main-font, 'IBM Plex mono', monospace); /* Шрифт с fallback */
-  font-size: var(--main-font-size); /* Размер текста */
-  color: var(--main-text-color); /* Цвет текста */
-  line-height: var(--main-line-height); /* Межстрочный интервал */
+  margin: 0 auto; /* середина на горизонтали */
+  background-color: var(--bg-color); /* Фончик */
+  font-family: var(--main-font, 'IBM Plex mono', monospace);
+  font-size: var(--main-font-size); /* текста */
+  color: var(--main-text-color);
+  line-height: var(--main-line-height);
 
-  /* Фоновое изображение */
-  background-image: var(--bg-image); /* Картинка фона из переменных */
-  background-repeat: no-repeat; /* Не повторяем изображение */
-  background-size: cover; /* Растягиваем на весь экран */
-  background-position: center; /* Центрируем изображение */
-  background-attachment: fixed; /* Фон фиксирован при скролле */
+  background-image: var(--bg-image);
+  background-repeat: no-repeat;
+  background-size: cover; /* весь экран */
+  background-position: center;
+  background-attachment: fixed; /* фиксация при промотки */
 }
 
-/* Шапка сайта */
+/* Шапка*/
 .header {
-  display: grid; /* Используем Grid для сложной сетки */
-  grid-template-rows: 1fr min-content 1fr auto; /* 4 строки: пустое место, меню, заголовок, описание */
-  align-items: center; /* Выравниваем по вертикали по центру */
-  justify-items: end; /* Выравниваем по горизонтали вправо */
-  padding: var(--main-padding); /* Отступы из переменных */
+  display: grid;
+  grid-template-rows: 1fr min-content 1fr auto; /* 1: пустое место, 2: меню, 3: заголовок, 4: описание */
+  align-items: center; /* ← ДОБАВИЛ: выравнивание по вертикали */
+  justify-items: end; /* вправо */
+  padding: var(--main-padding); /* + отступы */
 }
 
-/* Общий стиль для шапки и подвала с декоративными уголками */
 .decorated-zone {
-  height: 100vh; /* Высота во весь экран */
-  min-height: 668px; /* Минимальная высота для мобильных */
-  position: relative; /* Для позиционирования псевдоэлементов */
+  height: 100vh; /* высота во весь экран */
+  min-height: 668px;
+  position: relative; /* ЧТОБЫ УГОЛКИ НЕ УЛЕТЕЛИ */
 }
 
-/* Левый нижний уголок */
+/* |_ */
 .decorated-zone::before {
-  content: ""; /* Обязательно для псевдоэлемента */
-  position: absolute; /* Абсолютное позиционирование */
+  content: "";
+  position: absolute;
 
-  /* Позиция в левом нижнем углу */
-  inset-inline-start: var(--main-padding); /* Отступ слева */
-  inset-block-end: var(--main-padding); /* Отступ снизу */
+  inset-inline-start: var(--main-padding); /* слева */
+  inset-block-end: var(--main-padding); /* снизу */
 
-  /* Размеры уголка */
-  inline-size: 25px; /* Ширина */
-  block-size: 25px; /* Высота */
+  inline-size: 25px;
+  block-size: 25px;
 
-  /* Границы - только левая и нижняя */
-  border-block-end: 1px solid var(--button-color); /* Нижняя граница */
-  border-inline-start: 1px solid var(--button-color); /* Левая граница */
+  border-block-end: 1px solid var(--button-color); /* нижняя граница */
+  border-inline-start: 1px solid var(--button-color); /* левая граница */
 }
 
-/* Правый верхний уголок */
+/*  ̅ | */
 .decorated-zone::after {
-  content: ""; /* Обязательно для псевдоэлемента */
-  position: absolute; /* Абсолютное позиционирование */
+  content: "";
+  position: absolute;
 
-  /* Позиция в правом верхнем углу */
-  inset-inline-end: var(--main-padding); /* Отступ справа */
-  inset-block-start: var(--main-padding); /* Отступ сверху */
+  inset-inline-end: var(--main-padding); /* справа */
+  inset-block-start: var(--main-padding); /* верху */
 
-  /* Размеры уголка */
-  inline-size: 25px; /* Ширина */
-  block-size: 25px; /* Высота */
+  inline-size: 25px;
+  block-size: 25px;
 
-  /* Границы - только правая и верхняя */
-  border-block-start: 1px solid var(--button-color); /* Верхняя граница */
-  border-inline-end: 1px solid var(--button-color); /* Правая граница */
+  border-block-start: 1px solid var(--button-color); /* верхняя граница */
+  border-inline-end: 1px solid var(--button-color); /* правая граница */
 }
 
-/* Меню выбора темы */
+/* день/ночь/авто */
 .header__theme-menu {
-  justify-self: end; /* Прижимаем меню к правому краю */
+  justify-self: end; /* к правому краю */
 }
 
-/* Список кнопок меню */
 .header__theme-menu-list {
-  display: flex; /* Горизонтальное расположение */
-  flex-direction: column; /* Вертикальный стек кнопок */
-  gap: 10px; /* Промежуток между кнопками */
+  display: flex;
+  flex-direction: column; /* в стоолбик кнопки*/
+  gap: 10px;
 }
 
-/* Кнопки меню */
 .header__theme-menu-button {
-  color: var(--button-color); /* Цвет текста из переменных */
-  padding: 1.5px 13px; /* Внутренние отступы */
-  border: none; /* Убираем стандартную рамку */
+  color: var(--button-color);
+  padding: 1.5px 13px;
+  border: none;
   background-color: transparent; /* Прозрачный фон */
   cursor: pointer; /* Курсор-указатель при наведении */
 }
 
-/* Эффект при наведении на кнопку */
+/* при наведении */
 .header__theme-menu-button:hover {
-  outline: 1px solid var(--button-hover-color); /* Полупрозрачная рамка */
+  outline: 1px solid var(--button-hover-color); /* рамочки */
 }
 
-/* Убираем outline при фокусе (будет свой стиль) */
 .header__theme-menu-button:focus {
   outline: none; /* Отключаем стандартный outline */
 }
 
-/* Свой стиль для фокуса с клавиатуры */
 .header__theme-menu-button:focus-visible {
-  border-bottom: 1px solid var(--button-color); /* Подчёркивание снизу */
+  border-bottom: 1px solid var(--button-color); /* Подчёркивание */
 }
 
-/* Активная кнопка меню */
+/* Активная */
 .header__theme-menu-button_active {
-  outline: 1px solid var(--button-color); /* Рамка вокруг активной кнопки */
-  pointer-events: none; /* Отключаем клики по активной кнопке */
+  outline: 1px solid var(--button-color); /* рамочка когда активно */
+  pointer-events: none; /* ← ДОБАВИЛ: отключаем клики по активной кнопке */
 }
 
-/* Общий стиль для заголовков h1 и h2 */
+/* h1 и h2 */
 .title {
-  color: var(--main-title-color); /* Цвет из переменных */
-  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem); /* Адаптивный размер */
-  line-height: 82.5%; /* Межстрочный интервал для заголовков */
-  font-weight: 700; /* Жирное начертание */
+  color: var(--main-title-color);
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 82.5%;
+  font-weight: 700;
 }
 
 /* Заголовок в шапке */
 .header__title {
-  text-shadow: 4px 4px 0 var(--accent-color); /* Тень смещённая на 4px */
+  text-shadow: 4px 4px 0 var(--accent-color); /* тень 4px */
 }
 
-/* Описание под заголовком в шапке */
+/* Что делать когда */
 .header__description {
-  justify-self: end; /* Прижимаем к правому краю */
-  align-self: center; /* Выравниваем по вертикали по центру */
-  width: 100%; /* Занимает всю доступную ширину */
-  color: var(--title-decor-color); /* Цвет текста */
-  background-color: var(--title-decor-bg); /* Фон */
-  font-size: var(--main-font-size); /* Размер текста */
-  font-weight: 700; /* Жирное начертание */
-  line-height: var(--main-line-height); /* Межстрочный интервал */
+  justify-self: end; /* к праву*/
+  align-self: center;
+  width: 100%; /* всю ширину */
+  color: var(--title-decor-color);
+  background-color: var(--title-decor-bg);
+  font-size: var(--main-font-size); /* текста */
+  font-weight: 700;
+  line-height: var(--main-line-height);
 }
 
-/* Метка REC в шапке */
+/* REC */
 .header__rec {
-  position: absolute; /* Абсолютное позиционирование */
-  color: var(--rec-color); /* Цвет из переменных */
-  text-transform: uppercase; /* Все буквы заглавные */
-  inset-block-start: var(--main-padding); /* Отступ сверху */
-  inset-inline-end: calc(var(--main-padding) + 9px + 10px); /* Отступ справа с учётом кружка */
+  position: absolute;
+  color: var(--rec-color);
+  text-transform: uppercase;
+  inset-block-start: var(--main-padding); /* отступ сверху */
+  inset-inline-end: calc(var(--main-padding) + 9px + 10px); /* отступ справа с учётом кружка */
 }
 
-/* Кружок рядом с REC */
+/* Кружок */
 .header__rec::after {
-  content: ""; /* Обязательно для псевдоэлемента */
+  content: "";
   position: absolute; /* Абсолютное позиционирование */
-  block-size: 9px; /* Высота кружка */
-  inline-size: 9px; /* Ширина кружка */
-  border-radius: 50%; /* Делаем круг */
-  box-shadow: 0px 0px 4px 2px var(--rec-color); /* Свечение вокруг кружка */
-  background-color: var(--rec-color); /* Заливка кружка */
-  inset-inline-end: -19px; /* Позиция справа от текста */
-  inset-block-start: 8px; /* Выравнивание по вертикали */
+  block-size: 9px;
+  inline-size: 9px;
+  border-radius: 50%; 
+  box-shadow: 0px 0px 4px 2px var(--rec-color); /* Свечение вокруг кружка. Я гуглила */
+  background-color: var(--rec-color); /* Заливка */
+  inset-inline-end: -19px; /* позиция справа от текста */
+  inset-block-start: 8px; /* выравнивание по вертикали */
 }
 
-/* Основной контент между шапкой и подвалом */
 .content {
-  display: grid; /* Сетка для секций */
-  gap: var(--sections-gap); /* Промежуток между секциями */
-  padding: var(--main-content-vertical-padding) var(--main-padding); /* Отступы сверху/снизу и по бокам */
+  display: grid;
+  gap: var(--sections-gap); /* Промежуток */
+  padding: var(--main-content-vertical-padding) var(--main-padding); 
 }
 
-/* Общий стиль для всех секций */
 .section {
-  display: grid; /* Сетка внутри секции */
-  grid-auto-flow: row; /* Элементы располагаются в строки */
+  display: grid;
+  grid-auto-flow: row; /* в строки */
   gap: var(--header-articles-gap); /* Промежуток между заголовком и контентом */
 }
 
-/* Заголовок секции (h2) */
+/* h2) */
 .section__header {
-  color: var(--accent-color); /* Акцентный цвет */
-  font-size: var(--main-font-size); /* Размер текста */
-  font-weight: 700; /* Жирное начертание */
-  line-height: var(--main-line-height); /* Межстрочный интервал */
+  color: var(--accent-color);
+  font-size: var(--main-font-size);
+  font-weight: 700;
+  line-height: var(--main-line-height);
 }
 
-/* Контейнер для статей внутри секции */
+/* статейки */
 .section__article-list {
-  display: grid; /* Сетка для статей */
-  gap: var(--articles-gap); /* Промежуток между статьями */
+  display: grid;
+  gap: var(--articles-gap); 
 }
 
-/* Отдельная статья */
 .article {
-  display: grid; /* Сетка внутри статьи */
-  gap: 10px; /* Промежуток между заголовком и текстом */
-  grid-template-rows: min-content auto; /* Две строки: заголовок по размеру, текст занимает остальное */
+  display: grid;
+  gap: 10px; /* под заголовками */
+  grid-template-rows: min-content auto; /*  1стр) заголовок по размеру, 2стр) текст занимает остальное */
 }
 
-/* Заголовок статьи (h3, h4) */
+/* h3, h4 */
 .article__header {
-  color: var(--title-decor-color); /* Цвет текста */
-  background-color: var(--title-decor-bg); /* Фон */
-  font-size: var(--main-font-size); /* Размер текста */
-  font-weight: 700; /* Жирное начертание */
-  line-height: var(--main-line-height); /* Межстрочный интервал */
+  color: var(--title-decor-color);
+  background-color: var(--title-decor-bg);
+  font-size: var(--main-font-size);
+  font-weight: 700;
+  line-height: var(--main-line-height);
 }
 
-/* Основной текст статьи */
+/* Основной текст */
 .article__text {
-  color: var(--main-text-color); /* Цвет текста */
-  font-size: var(--main-font-size); /* Размер текста */
-  line-height: var(--main-line-height); /* Межстрочный интервал */
-  font-weight: 400; /* Обычное начертание */
+  color: var(--main-text-color);
+  font-size: var(--main-font-size);
+  line-height: var(--main-line-height);
+  font-weight: 400;
 }
 
-/* Ссылки в тексте */
+/* Ссылки*/
 .article__text .research-link {
-  text-decoration: none; /* Убираем подчёркивание */
-  text-shadow: 2px 2px var(--accent-color); /* Тень вместо подчёркивания */
+  text-decoration: none;
+  text-shadow: 2px 2px var(--accent-color); /* Тень */
 }
 
-/* Эффект при наведении на ссылку */
+/* при наведении */
 .article__text .research-link:hover {
-  outline: none; /* Убираем outline */
-  border-bottom: 1px solid var(--main-text-color); /* Подчёркивание при наведении */
+  outline: none;
+  border-bottom: 1px solid var(--main-text-color); /* Подчёркивание */
 }
 
-/* Убираем outline при фокусе */
+/* обнуляем все при фокусе */
 .article__text .research-link:focus {
-  outline: none; /* Отключаем стандартный outline */
+  outline: none;
 }
 
-/* Свой стиль для фокуса с клавиатуры */
 .article__text .research-link:focus-visible {
-  outline: 1px solid var(--main-text-color); /* Рамка вокруг ссылки */
+  outline: 1px solid var(--main-text-color); /* Рамочка */
 }
 
-/* Контейнер для изображений в галерее */
+/* Галерея */
 .article__images {
-  display: grid; /* Сетка для изображений */
-  gap: var(--main-padding); /* Промежуток между изображениями */
+  display: grid;
+  gap: var(--main-padding);
 }
 
-/* Отдельное изображение в галерее */
 .article__images-image {
-  width: 100%; /* Ширина 100% контейнера */
-  height: 100%; /* Высота 100% контейнера */
+  width: 100%;
+  height: 100%;
   object-fit: cover; /* Обрезаем и масштабируем изображение */
-  object-position: center; /* Центрируем изображение */
+  object-position: center;
 }
 
-/* Подвал сайта */
 .footer {
-  display: flex; /* Flex для центрирования */
-  justify-content: center; /* Центрируем по горизонтали */
-  align-items: center; /* Центрируем по вертикали */
-  padding: var(--main-padding); /* Отступы */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--main-padding);
 }
 
-/* Заголовок в подвале */
 .footer__title {
-  text-shadow: 2px 2px 0 var(--accent-color); /* Тень смещённая на 2px */
+  text-shadow: 2px 2px 0 var(--accent-color); /* Тень */
 }
 
-/* 
-  Стили для планшетов (ширина экрана >= 768px) 
-  Переопределяют мобильные стили
-*/
+
 @media (width >= 768px) {
-  /* Секции "Почему" и "Как" - две колонки */
+  /* "Почему" и "Как" - две колонки */
   .why,
   .how {
-    grid-template-columns: 1fr 2fr; /* Заголовок 1 часть, контент 2 части */
+    grid-template-columns: 1fr 2fr; /* 1:2 заголовок и контент */
   }
 
-  /* Секция "Что" - заголовок занимает 1/3 ширины */
+  /* Секция "Что" 1/3 ширины */
   .what .section__header {
-    width: calc(100% / 3 - var(--articles-gap)); /* Ширина с учётом промежутка */
+      width: calc(100% / 3 - var(--articles-gap)); /* ← ИСПРАВИЛ: точный расчет с учетом отступа */
   }
 
   /* Галерея - больше промежуток между изображениями */
