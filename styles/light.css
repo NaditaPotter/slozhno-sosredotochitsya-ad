@@ -1,57 +1,35 @@
-/* light.css */
-
-/*
-  Специально для светлой темы при наличии класса (ПРИНУДИТЕЛЬНОЕ ПЕРЕКЛЮЧЕНИЕ).
-  ВАЖНО: Использован селектор :root.theme-light для переопределения переменных.
-*/
-:root.theme-light {
-  --accent-color: #ff8dcb;
-  --main-bg-color: #fff1f7;
+.page.theme_light {
   --main-text-color: #353430;
-  --nav-color: #353430;
-  --header-logo-color: #ffc2e6;
-  --footer-logo-color: #ffc2e6;
-  --main-heading-color: #353430;
-  --section-heading-color: #353430;
-  
-  --decor-text-color: var(--main-text-color);
-  --decor-bg-color: var(--accent-color);
-  --border-color: var(--accent-color);
-  
-  --background-image: url(../images/cover-image-light.png);
+  --bg-color: #FFF1F7;
+  --accent-color: #FF8DCB;
+  --main-title-color: #FFC2E6;
+  --title-decor-color: #353430;
+  --title-decor-bg: #FF8DCB;
+  --button-color: #353430;
+  --button-hover-color: rgba(50, 49, 45, 0.40);
+  --rec-color: #FF8DCB;
+  --bg-image: url("../images/cover-image-light.png");
 }
 
-.theme-light .header__rec {
+.theme_light .header__rec {
   display: none;
-}
-
-.theme-light .header__theme-menu-button_active {
-  border: 1px solid var(--nav-color);
-}
-
-.header_theme-menu-button:hover {
-    --nav-hover-color: rgb(50 49 45 / 0.4);
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --accent-color: #ff8dcb;
-    --main-bg-color: #fff1f7;
     --main-text-color: #353430;
-    --nav-color: #353430;
-    --main-heading-color: #353430;
-    --section-heading-color: #353430;
-    --header-logo-color: #ffc2e6;
-    --footer-logo-color: #ffc2e6;
-    
-    --decor-text-color: var(--main-text-color);
-    --decor-bg-color: var(--accent-color); 
-    --border-color: var(--accent-color);
-    
-    --background-image: url(../images/cover-image-light.png);
+    --bg-color: #FFF1F7;
+    --accent-color: #FF8DCB;
+    --main-title-color: #FFC2E6;
+    --title-decor-color: #353430;
+    --title-decor-bg: #FF8DCB;
+    --button-color: #353430;
+    --button-hover-color: rgba(50, 49, 45, 0.40);
+    --rec-color: #FF8DCB;
+    --bg-image: url("../images/cover-image-light.png");
   }
-
+  
   .header__rec {
-      display: none;
+    display: none;
   }
 }
