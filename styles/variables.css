@@ -1,34 +1,32 @@
 :root {
-  --main-font: 'IBM Plex mono', monospace;
+  --main-font: 'IBM Plex mono', monospace; /* шрифт */
   --main-font-size: 18px;
   --main-line-height: 23.4px;
-  --header-articles-gap: 20px;
+  
+  --header-articles-gap: 20px; /* S аод заголовком*/
   --articles-gap: 20px;
   
-  /* Цвета по умолчанию (тёмная тема) */
-  --main-text-color: #F1B2CE;
-  --bg-color: #000028;
+  --main-text-color: #F1B2CE; /* основной текст*/
+  --bg-color: #000028; /* фончик */
   --accent-color: #FF0070;
-  --main-title-color: #DB00FF;
+  --main-title-color: #DB00FF; /* ноу фокус */
   --title-decor-color: #000028;
   --title-decor-bg: #FF0070;
   --button-color: #FF0070;
-  --button-hover-color: rgba(255, 0, 112, 0.40);
+  --button-hover-color: rgba(255, 0, 112, 0.40); /* при наведение */
   --rec-color: #FF0070;
   
-  /* Размеры */
-  --main-padding: 10px;
+  --main-padding: 10px; /* база отступ*/
   --main-content-vertical-padding: 40px;
-  --sections-gap: 50px;
-  
-  /* Фон */
+  --sections-gap: 50px; /* S между секциями */
+
   --bg-image: url("../images/cover-image-dark.png");
 }
 
 @media (width >= 768px) {
   :root {
-    --main-padding: 20px;
-    --main-content-vertical-padding: 60px;
-    --sections-gap: 80px;
+    --main-padding: 20px; 
+    --main-content-vertical-padding: 60px; /*вокруг*/
+    --sections-gap: 80px; /* S между секциями  */
   }
 }
