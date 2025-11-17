@@ -25,7 +25,7 @@
 
 @media (width >= 768px) {
   :root {
-    --main-padding: 20px; 
+    --main-padding: 20px;
     --main-content-vertical-padding: 60px; /*вокруг*/
     --sections-gap: 80px; /* S между секциями  */
   }
