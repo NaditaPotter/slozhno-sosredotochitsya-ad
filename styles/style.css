@@ -1,67 +1,70 @@
 .page {
-  margin: 0 auto;
-  background-color: var(--bg-color);
+  margin: 0 auto; /* середина на горизонтали */
+  background-color: var(--bg-color); /* Фончик */
   font-family: var(--main-font, 'IBM Plex mono', monospace);
-  font-size: var(--main-font-size);
+  font-size: var(--main-font-size); /* текста */
   color: var(--main-text-color);
   line-height: var(--main-line-height);
 
   background-image: var(--bg-image);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; /* весь экран */
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: fixed; /* фиксация при промотки */
 }
 
+/* Шапка*/
 .header {
   display: grid;
-  grid-template-rows: 1fr min-content 1fr auto;
-  align-items: center;
-  justify-items: end;
-  padding: var(--main-padding);
+  grid-template-rows: 1fr min-content 1fr auto; /* 1: пустое место, 2: меню, 3: заголовок, 4: описание */
+  justify-items: end; /* вправо */
+  padding: var(--main-padding); /* + отступы */
 }
 
 .decorated-zone {
-  height: 100vh;
+  height: 100%; /* высота во весь экран */
   min-height: 668px;
-  position: relative;
+  position: relative; /* ЧТОБЫ УГОЛКИ НЕ УЛЕТЕЛИ */
 }
 
+/* |_ */
 .decorated-zone::before {
   content: "";
   position: absolute;
 
-  inset-inline-start: var(--main-padding);
-  inset-block-end: var(--main-padding);
+  inset-inline-start: var(--main-padding); /* слева */
+  inset-block-end: var(--main-padding); /* снизу */
 
   inline-size: 25px;
   block-size: 25px;
 
-  border-block-end: 1px solid var(--button-color);
-  border-inline-start: 1px solid var(--button-color);
+  border-block-end: 1px solid var(--button-color); /* нижняя граница */
+  border-inline-start: 1px solid var(--button-color); /* левая граница */
 }
 
+/*  ̅ | */
 .decorated-zone::after {
   content: "";
   position: absolute;
 
-  inset-inline-end: var(--main-padding);
-  inset-block-start: var(--main-padding);
+  inset-inline-end: var(--main-padding); /* справа */
+  inset-block-start: var(--main-padding); /* верху */
 
   inline-size: 25px;
   block-size: 25px;
 
-  border-block-start: 1px solid var(--button-color);
-  border-inline-end: 1px solid var(--button-color);
+  border-block-start: 1px solid var(--button-color); /* верхняя граница */
+  border-inline-end: 1px solid var(--button-color); /* правая граница */
 }
 
+/* день/ночь/авто */
 .header__theme-menu {
-  justify-self: end;
+  justify-self: end; /* к правому краю */
 }
 
 .header__theme-menu-list {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* в стоолбик кнопки*/
   gap: 10px;
 }
 
@@ -69,27 +72,29 @@
   color: var(--button-color);
   padding: 1.5px 13px;
   border: none;
-  background-color: transparent;
-  cursor: pointer;
+  background-color: transparent; /* Прозрачный фон */
+  cursor: pointer; /* Курсор-указатель при наведении */
 }
 
+/* при наведении */
 .header__theme-menu-button:hover {
-  outline: 1px solid var(--button-hover-color);
+  outline: 1px solid var(--button-hover-color); /* рамочки */
 }
 
 .header__theme-menu-button:focus {
-  outline: none;
+  outline: none; /* Отключаем стандартный outline */
 }
 
 .header__theme-menu-button:focus-visible {
-  border-bottom: 1px solid var(--button-color);
+  border-bottom: 1px solid var(--button-color); /* Подчёркивание */
 }
 
+/* Активная */
 .header__theme-menu-button_active {
-  outline: 1px solid var(--button-color);
-  pointer-events: none;
+  outline: 1px solid var(--button-color); /* рамочка когда активно */
 }
 
+/* h1 и h2 */
 .title {
   color: var(--main-title-color);
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
@@ -97,53 +102,53 @@
   font-weight: 700;
 }
 
+/* Заголовок в шапке */
 .header__title {
-  text-shadow: 4px 4px 0 var(--accent-color);
+  text-shadow: 4px 4px 0 var(--accent-color); /* тень 4px */
 }
 
+/* Что делать когда */
 .header__description {
-  justify-self: end;
+  justify-self: end; /* к праву*/
   align-self: center;
-  width: 100%;
+  width: 100%; /* всю ширину */
   color: var(--title-decor-color);
   background-color: var(--title-decor-bg);
-  font-size: var(--main-font-size);
+  font-size: var(--main-font-size); /* текста */
   font-weight: 700;
   line-height: var(--main-line-height);
 }
 
+/* REC */
 .header__rec {
   position: absolute;
   color: var(--rec-color);
-  text-transform: uppercase;
-  inset-block-start: var(--main-padding);
-  inset-inline-end: calc(var(--main-padding) + 9px + 10px);
 }
 
+/* Кружок */
 .header__rec::after {
   content: "";
-  position: absolute;
+  position: absolute; /* Абсолютное позиционирование */
   block-size: 9px;
   inline-size: 9px;
-  border-radius: 50%;
-  box-shadow: 0px 0px 4px 2px var(--rec-color);
-  background-color: var(--rec-color);
-  inset-inline-end: -19px;
-  inset-block-start: 8px;
+  border-radius: 50%; 
+  box-shadow: 0px 0px 4px 2px var(--rec-color); /* Свечение вокруг кружка. Я гуглила */
+  background-color: var(--rec-color); /* Заливка */
 }
 
 .content {
   display: grid;
-  gap: var(--sections-gap);
-  padding: var(--main-content-vertical-padding) var(--main-padding);
+  gap: var(--sections-gap); /* Промежуток */
+  padding: var(--main-content-vertical-padding) var(--main-padding); 
 }
 
 .section {
   display: grid;
-  grid-auto-flow: row;
-  gap: var(--header-articles-gap);
+  grid-auto-flow: row; /* в строки */
+  gap: var(--header-articles-gap); /* Промежуток между заголовком и контентом */
 }
 
+/* h2) */
 .section__header {
   color: var(--accent-color);
   font-size: var(--main-font-size);
@@ -151,17 +156,19 @@
   line-height: var(--main-line-height);
 }
 
+/* статейки */
 .section__article-list {
   display: grid;
-  gap: var(--articles-gap);
+  gap: var(--articles-gap); 
 }
 
 .article {
   display: grid;
-  gap: 10px;
-  grid-template-rows: min-content auto;
+  gap: 10px; /* под заголовками */
+  grid-template-rows: min-content auto; /*  1стр) заголовок по размеру, 2стр) текст занимает остальное */
 }
 
+/* h3, h4 */
 .article__header {
   color: var(--title-decor-color);
   background-color: var(--title-decor-bg);
@@ -170,6 +177,7 @@
   line-height: var(--main-line-height);
 }
 
+/* Основной текст */
 .article__text {
   color: var(--main-text-color);
   font-size: var(--main-font-size);
@@ -177,24 +185,28 @@
   font-weight: 400;
 }
 
+/* Ссылки*/
 .article__text .research-link {
   text-decoration: none;
-  text-shadow: 2px 2px var(--accent-color);
+  text-shadow: 2px 2px var(--accent-color); /* Тень */
 }
 
+/* при наведении */
 .article__text .research-link:hover {
   outline: none;
-  border-bottom: 1px solid var(--main-text-color);
+  border-bottom: 1px solid var(--main-text-color); /* Подчёркивание */
 }
 
+/* обнуляем все при фокусе */
 .article__text .research-link:focus {
   outline: none;
 }
 
 .article__text .research-link:focus-visible {
-  outline: 1px solid var(--main-text-color);
+  outline: 1px solid var(--main-text-color); /* Рамочка */
 }
 
+/* Галерея */
 .article__images {
   display: grid;
   gap: var(--main-padding);
@@ -203,7 +215,7 @@
 .article__images-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Обрезаем и масштабируем изображение */
   object-position: center;
 }
 
@@ -211,79 +223,91 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: var(--main-padding);
 }
 
 .footer__title {
-  text-shadow: 2px 2px 0 var(--accent-color);
+  text-shadow: 2px 2px 0 var(--accent-color); /* Тень */
 }
 
+
 @media (width >= 768px) {
+  /* "Почему" и "Как" - две колонки */
   .why,
   .how {
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 2fr; /* 1:2 заголовок и контент */
   }
 
+  /* "Что" 1/3 ширины */
   .what .section__header {
-    width: calc(100% / 3 - var(--articles-gap));
+      width: 33.33%;
   }
 
+  /* Галерея */
   .images article {
     gap: 20px;
   }
 
-  .header__title {
-    justify-self: left;
-    margin-inline-start: -20px;
-  }
-
   .title {
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem); /* размер */
   }
 
+  /* Описание в шапке занимает половину ширины */
   .header__description {
-    width: calc(100% / 2);
+    width: calc(100% / 2); /* 50% ширины */
   }
 
+  /* Сетка для галереи изображений */
   .article__images {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, auto);
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки */
+    grid-template-rows: repeat(3, auto); /* 3 строки */
   }
 
+  /* Первое изображение - на 2 колонки */
   .article__images-image:first-child {
-    grid-column: span 2;
+    grid-column: span 2; /* Занимает 2 колонки */
   }
 
+  /* Второе изображение - на 2 строки */
   .article__images-image:nth-child(2) {
-    grid-row: span 2;
+    grid-row: span 2; /* Занимает 2 строки */
   }
 
+  /* Третье изображение - на 2 строки */
   .article__images-image:nth-child(3) {
-    grid-row: span 2;
+    grid-row: span 2; /* Занимает 2 строки */
   }
 
+  /* Пятое изображение - на 2 колонки в третьей строке */
   .article__images-image:nth-child(5) {
-    grid-row: 3;
-    grid-column: 2 / 4;
+    grid-row: 3; /* Третья строка */
+    grid-column: 2 / 4; /* С 2 по 4 колонку */
   }
 }
 
+/* 
+  Стили для компьютеров (ширина экрана >= 1024px) 
+  Дополняют планшетные стили
+*/
 @media (width >= 1024px) {
+  /* Секция "Что" - 3 колонки для статей */
   .what .section__article-list {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* 3 равные колонки */
   }
 
+  /* Секции "Почему" и "Как" - точное соотношение колонок */
   .why,
   .how {
-    grid-template-columns: calc((100% - 2 * var(--header-articles-gap)) / 3) 1fr;
+    grid-template-columns: calc((100% - 2 * var(--header-articles-gap)) / 3) 1fr; /* 1/3 и 2/3 с учётом промежутка */
   }
 
+  /* Меню в шапке центрируем */
   .header__theme-menu {
-    justify-self: center;
-    align-self: start;
+    justify-self: center; /* Центрируем по горизонтали */
+    align-self: start; /* Прижимаем к верху */
   }
 
+  /* Кнопки меню в строку */
   .header__theme-menu-list {
-    flex-direction: row;
+    flex-direction: row; /* Горизонтальное расположение */
   }
 }
