@@ -17,7 +17,7 @@
 .header {
   display: grid;
   grid-template-rows: 1fr min-content 1fr auto; /* 1: пустое место, 2: меню, 3: заголовок, 4: описание */
-  align-items: center; /* ← ДОБАВИЛ: выравнивание по вертикали */
+  align-items: center; /* выравнивание по вертикали */
   justify-items: end; /* вправо */
   padding: var(--main-padding); /* + отступы */
 }
@@ -93,7 +93,7 @@
 /* Активная */
 .header__theme-menu-button_active {
   outline: 1px solid var(--button-color); /* рамочка когда активно */
-  pointer-events: none; /* ← ДОБАВИЛ: отключаем клики по активной кнопке */
+  pointer-events: none; /* отключаем клики по активной кнопке */
 }
 
 /* h1 и h2 */
@@ -136,7 +136,7 @@
   position: absolute; /* Абсолютное позиционирование */
   block-size: 9px;
   inline-size: 9px;
-  border-radius: 50%; 
+  border-radius: 50%;
   box-shadow: 0px 0px 4px 2px var(--rec-color); /* Свечение вокруг кружка. Я гуглила */
   background-color: var(--rec-color); /* Заливка */
   inset-inline-end: -19px; /* позиция справа от текста */
@@ -146,7 +146,7 @@
 .content {
   display: grid;
   gap: var(--sections-gap); /* Промежуток */
-  padding: var(--main-content-vertical-padding) var(--main-padding); 
+  padding: var(--main-content-vertical-padding) var(--main-padding);
 }
 
 .section {
@@ -166,7 +166,7 @@
 /* статейки */
 .section__article-list {
   display: grid;
-  gap: var(--articles-gap); 
+  gap: var(--articles-gap);
 }
 
 .article {
@@ -247,69 +247,62 @@
 
   /* Секция "Что" 1/3 ширины */
   .what .section__header {
-      width: calc(100% / 3 - var(--articles-gap)); /* ← ИСПРАВИЛ: точный расчет с учетом отступа */
+      width: calc(100% / 3 - var(--articles-gap)); /*с учетом отступа */
   }
 
-  /* Галерея - больше промежуток между изображениями */
+  /* Галерея*/
   .images article {
-    gap: 20px; /* Увеличиваем промежуток */
+    gap: 20px;
   }
 
   /* Заголовок в шапке смещаем влево */
   .header__title {
-    justify-self: left; /* Выравниваем по левому краю */
+    justify-self: left; /*по левому краю */
     margin-inline-start: -20px; /* Смещаем влево за отступ */
   }
 
-  /* Адаптивный размер заголовков для больших экранов */
+  /*размер заголовков*/
   .title {
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem); /* Динамический размер */
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 
-  /* Описание в шапке занимает половину ширины */
+  /* Что делать еслиюю.... половитна  */
   .header__description {
-    width: calc(100% / 2); /* 50% ширины */
+    width: calc(100% / 2);
   }
 
-  /* Сетка для галереи изображений */
+  /* для галереи*/
   .article__images {
     grid-template-columns: repeat(3, 1fr); /* 3 колонки */
     grid-template-rows: repeat(3, auto); /* 3 строки */
   }
 
-  /* Первое изображение - на 2 колонки */
   .article__images-image:first-child {
-    grid-column: span 2; /* Занимает 2 колонки */
+    grid-column: span 2;
   }
 
-  /* Второе изображение - на 2 строки */
   .article__images-image:nth-child(2) {
-    grid-row: span 2; /* Занимает 2 строки */
+    grid-row: span 2;
   }
 
-  /* Третье изображение - на 2 строки */
   .article__images-image:nth-child(3) {
-    grid-row: span 2; /* Занимает 2 строки */
+    grid-row: span 2;
   }
 
-  /* Пятое изображение - на 2 колонки в третьей строке */
   .article__images-image:nth-child(5) {
-    grid-row: 3; /* Третья строка */
-    grid-column: 2 / 4; /* С 2 по 4 колонку */
+    grid-row: 3;
+    grid-column: 2 / 4;
   }
 }
 
-/* 
-  Стили для компьютеров (ширина экрана >= 1024px) 
-  Дополняют планшетные стили
-*/
+
 @media (width >= 1024px) {
-  /* Секция "Что" - 3 колонки для статей */
+  /* Секция "Что" - 3 колонки */
   .what .section__article-list {
-    grid-template-columns: repeat(3, 1fr); /* 3 равные колонки */
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  /* Секции "Почему" и "Как" - точное соотношение колонок */
+  /*"Почему" и "Как"  соотношение колонок */
   .why,
   .how {
     grid-template-columns: calc((100% - 2 * var(--header-articles-gap)) / 3) 1fr; /* 1/3 и 2/3 с учётом промежутка */
@@ -317,12 +310,12 @@
 
   /* Меню в шапке центрируем */
   .header__theme-menu {
-    justify-self: center; /* Центрируем по горизонтали */
-    align-self: start; /* Прижимаем к верху */
+    justify-self: center;
+    align-self: start;
   }
 
   /* Кнопки меню в строку */
   .header__theme-menu-list {
-    flex-direction: row; /* Горизонтальное расположение */
+    flex-direction: row; /* Горизонтальное */
   }
 }
