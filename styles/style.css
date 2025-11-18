@@ -127,13 +127,13 @@
   color: var(--rec-color);
   text-transform: uppercase;
   inset-block-start: var(--main-padding); /* отступ сверху */
-  inset-inline-end: calc(var(--main-padding) + 9px + 10px); /* отступ справа с учётом кружка */
+  inset-inline-end: calc(var(--main-padding) + 9px + 18px); /* отступ справа с учётом кружка */
 }
 
 /* Кружок */
 .header__rec::after {
   content: "";
-  position: absolute; /* Абсолютное позиционирование */
+  position: absolute;
   block-size: 9px;
   inline-size: 9px;
   border-radius: 50%;
@@ -297,12 +297,12 @@
 
 
 @media (width >= 1024px) {
-  /* Секция "Что" - 3 колонки */
+  /* Что" - 3 колонки */
   .what .section__article-list {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  /*"Почему" и "Как"  соотношение колонок */
+  /*"Почему" и "Как"  соотношение*/
   .why,
   .how {
     grid-template-columns: calc((100% - 2 * var(--header-articles-gap)) / 3) 1fr; /* 1/3 и 2/3 с учётом промежутка */
@@ -316,6 +316,6 @@
 
   /* Кнопки меню в строку */
   .header__theme-menu-list {
-    flex-direction: row; /* Горизонтальное */
+    flex-direction: row;
   }
 }
